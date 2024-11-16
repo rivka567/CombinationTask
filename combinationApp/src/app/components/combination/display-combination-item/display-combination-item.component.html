@@ -1,0 +1,15 @@
+
+@if(combination)
+{
+<p-card>
+    <p>קומבינציה מספר {{ combinationIndex }} : {{ combination }}</p>
+
+    <div class="button-container">
+        <p-button  label="איפוס" (click)="navigateTo('/')" />
+        <p-button label="כל הקומבינציות" (click)="navigateTo('/all-combinations')" />
+        <p-button label="הקודם" (click)="previousCombination()" [disabled]="isPreviousDisabled" />
+        <p-button label="הבא" (click)="nextCombination()" [disabled]="isNextDisabled" />
+    </div>
+
+</p-card>
+}

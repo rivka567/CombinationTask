@@ -1,0 +1,23 @@
+@if (combinations && combinations.length > 0)
+{
+    <p-card>
+        @for(combination of combinations; track combination)
+        {
+            <div>
+                <p>{{ combination }}</p>
+            </div>
+        } 
+    </p-card>         
+}
+
+<div class="container">
+    <p-button label="חזור" class="back-button" (click)="navigateTo()" />
+
+    <div class="paginator">
+        <p-paginator 
+        (onPageChange)="onPageChange($event)" 
+        [rows]="10" 
+        [totalRecords]="totalRecords" 
+        [rowsPerPageOptions]="options" />
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <div>
+    <label for="value"> הכנס ערך (בין 1 ל-20):  </label>
+    <p-inputNumber id="value" type="number" formControlName="value"/>
+  </div>
+
+    @if (form.get('value')?.invalid && (form.get('value')?.touched || form.get('value')?.dirty) )
+    {
+      <div class="p-error">
+        @if (form.get('value')?.errors?.['required']) {
+            <span> חובה להכניס ערך </span>
+        }
+        @if (form.get('value')?.errors?.['min'] || form.get('value')?.errors?.['max']) {
+          <span>יש להזין ערך בין 1 ל-20</span>
+        } 
+      </div>
+    }
+    <div>
+      <p-button label="הצג מספר קומבינציות" type="submit" [disabled]="form.invalid" />
+    </div>
+  </form>
+
+  <div *ngIf="totalCombinations !== null">
+    <p>סה"כ האפשרויות לסדר {{form.value.value}} מספרים בשורה הוא: {{ totalCombinations | number }}</p>
+    <p-button label="הצג קומבינציות" (click)="navigateTo()" />
+  </div>

@@ -1,0 +1,15 @@
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+  }
+  
+  .button-container p-button:nth-child(2),
+  .button-container p-button:nth-child(3),
+  .button-container p-button:nth-child(4) {
+    margin-right: 8px; 
+  }
+  
+  .button-container p-button:first-child {
+    margin-left: auto;
+  }
